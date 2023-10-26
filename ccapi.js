@@ -32,7 +32,8 @@ let liveViewImage;
       };
 	  
 	function setupLive(){
-		fetch('https://192.168.1.25:443/ccapi/ver100/shooting/liveview', {
+    liveViewIP = camaraIP + "/ccapi/ver100/shooting/liveview"
+		fetch(liveViewIP, {
           method: 'POST',
           body: JSON.stringify(setupPayload)
         })
@@ -53,7 +54,8 @@ let liveViewImage;
 
       // Send a POST request to release the shutter
       setTimeout(() => {
-        fetch('https://192.168.1.25:443/ccapi/ver100/shooting/control/shutterbutton/manual', {
+        shootIP = camaraIP + "/ccapi/ver100/shooting/control/shutterbutton/manual"
+        fetch(shootIP, {
           method: 'POST',
           body: JSON.stringify(payload)
         })
@@ -70,7 +72,8 @@ let liveViewImage;
       }, 100);
 
       setTimeout(() => {
-        fetch('https://192.168.1.25:443/ccapi/ver100/shooting/control/shutterbutton/manual', {
+        shootIP = camaraIP + "/ccapi/ver100/shooting/control/shutterbutton/manual"
+        fetch(shootIP, {
           method: 'POST',
           body: JSON.stringify(payload2)
         })
@@ -97,6 +100,7 @@ let liveViewImage;
     }
 
     function updateLiveView() {
+      updateLiveViewIP = camaraIP + "/ccapi/ver100/shooting/liveview/flip?timestamp="
       const timestamp = new Date().getTime();
-      liveViewImage.src = `https://192.168.1.25:443/ccapi/ver100/shooting/liveview/flip?timestamp=${timestamp}`;
+      liveViewImage.src = updateLiveViewIP + timestamp;
     }
