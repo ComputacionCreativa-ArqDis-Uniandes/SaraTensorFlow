@@ -6,7 +6,7 @@ function dictCompare(dict1, dict2){
     let dict2Norm = normalizador(dict2,keys);
 
     for(let i in keys){ 
-    
+        console.log(dict1Norm[i]);
     }
 
 
