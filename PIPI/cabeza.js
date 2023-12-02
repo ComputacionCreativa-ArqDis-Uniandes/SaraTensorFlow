@@ -39,7 +39,7 @@ let inputDic = {
     rightAnkle: [284.44,264.44],
   };
 
-  
+  // Creates a set of common detected keys on both ref and TensorFlow DICT's 
   function commonKeys(dict1,dict2){
     let listKeys1 = Object.keys(dict1);
     let listKeys2 = Object.keys(dict2);
