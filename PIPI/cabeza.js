@@ -1,4 +1,4 @@
-let inputDic = {
+let inputDict = {
     nose: [284.44,264.44],
     leftEye: [284.44,264.44],
     rightEye: [284.44,264.44],
@@ -19,7 +19,7 @@ let inputDic = {
   };
 
 
-  let referenceDic = {
+  let referenceDict = {
     nose: [284.44,264.44],
     leftEye: [284.44,264.44],
     rightEye: [284.44,264.44],
@@ -53,16 +53,19 @@ let inputDic = {
     return listKeys3
   } 
 
+
+
   let lista;
   lista = commonKeys(inputDict,referenceDict);
+  console.log(lista);
   
 
 
   function normalizer(dict,list){
     for(let i in list){
       let elemento;
-      elemento = dict.list[i];
-      console.log();
+      elemento = list[i];
+      console.log(elemento);
     }
   }
 
