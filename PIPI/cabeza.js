@@ -38,6 +38,7 @@ let referenceDict = {
   rightAnkle: [712.58, 148.45],
 };
 
+
   // Creates a set of common detected keys on both ref and TensorFlow DICT's 
   function commonKeys(dict1,dict2){
     let listKeys1 = Object.keys(dict1);
@@ -61,18 +62,21 @@ let referenceDict = {
 
 
   function normalizer(dict,list){
+    const newDict = {}
+
     for(let i in list){
-      let elemento;
-      elemento = list[i];
-      console.log(elemento);
+
+      let x;
+      x=Math.abs(dict[list[i]][0] - dict["nose"][0])/Math.abs(dict["nose"][0] - dict["leftEye"][0]);
+      
+      let y;
+      y=Math.abs(dict[list[i]][1] - dict["nose"][1])/Math.abs(dict["nose"][1] - dict["leftEye"][1]);
+      newDict[list[i]]=[x,y];
+
+    return newDict
     }
   }
 
-
-function substract(ele1,ele2){
-  ele1[0]-ele2[0]
-  
-}
 
   let hey
   hey = normalizer(inputDict,lista);
