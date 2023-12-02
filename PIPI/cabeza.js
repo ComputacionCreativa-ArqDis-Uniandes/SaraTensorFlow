@@ -54,13 +54,21 @@ let inputDic = {
   } 
 
   let lista;
-  lista = commonKeys(inputDic,referenceDic);
+  lista = commonKeys(inputDict,referenceDict);
   
-  function normalizador(dic,list){
+
+
+  function normalizer(dict,list){
     for(let i in list){
       let elemento;
-      elemento = dic.list[i];
+      elemento = dict.list[i];
       console.log();
     }
   }
+
+
+  let hey
+  hey = normalizer(inputDict,lista);
+
+
 
