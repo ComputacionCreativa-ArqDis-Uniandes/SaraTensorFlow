@@ -19,8 +19,8 @@ let inputDict = {
 };
 
 let referenceDict = {
-  nose: [258.51, 915.24],
-  leftEye: [479.02, 496.18],
+  nose: [878.39, 352.12],
+  leftEye: [707.57, 936.78],
   rightEye: [844.79, 366.48],
   leftEar: [695.16, 489.74],
   rightEear: [384.53, 677.68],
