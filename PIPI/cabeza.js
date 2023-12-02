@@ -70,6 +70,11 @@ let inputDict = {
   }
 
 
+function substract(ele1,ele2){
+  ele1[0]-ele2[0]
+  
+}
+
   let hey
   hey = normalizer(inputDict,lista);
 
