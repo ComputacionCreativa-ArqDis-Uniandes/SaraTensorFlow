@@ -7,7 +7,7 @@ let userLiveScore = {};
 let userSituacion = {};
 let userLiveSituacion = 0;
 
-let picUrl;
+let picUrlFirebase;
 
 const firebaseConfig = {
     apiKey: "AIzaSyCkJH4-Xkjik2PF2pWN8GyNhixwGWRyRyc",
@@ -74,7 +74,7 @@ function uploadPic(userId, url) {
     })
     .then(downloadURL => {
       // Update the Realtime Database with the download URL
-      picUrl = downloadURL;
+      picUrlFirebase = downloadURL;
       return databaseRef.set(downloadURL);
     })
     .then(() => {
@@ -83,5 +83,6 @@ function uploadPic(userId, url) {
     .catch(error => {
       console.error("Error uploading image:", error);
     });
+  qrCode(picUrlFirebase);
 }
 

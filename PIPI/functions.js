@@ -204,3 +204,13 @@ function updateBarChart(data) {
     });
   }
 
+function qrCode(url){
+    var qr = new QRCode(document.createElement("div"), {
+        text: url,
+        width: 500,
+        height: 500
+      });
+      
+      // Append the QR code to the body or any other container
+      document.body.appendChild(qr._el);
+}
