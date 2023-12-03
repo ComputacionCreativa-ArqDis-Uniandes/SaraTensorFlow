@@ -7,23 +7,37 @@
     <link rel="stylesheet" href="css.css">
     <script src="https://cdn.jsdelivr.net/npm/ml5@0.7.2/dist/ml5.min.js"></script>
 
+	  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   </head>
   <body>
     <h1>SARA CCAPI + TensorFlow Test</h1>
     <div id="liveViewContainer"></div>
     <label for="textInput">IP: </label>
-    <input type="text" id="textInput" value="192.168.1.25:443">
-    <input type="text" id="textInput2" value="75">
+    <input type="text" id="textInput" value="172.50.2.221:443">
+    <input type="text" id="textInput2" value="200">
     <button onclick="setupCamera()">Setup Camera</button>
     <button onclick="releaseShutter()">Release Shutter</button>
+	<button onclick="createPose()">CreatePose</button>
     <button onclick="setup()">Setup TensorFlow</button>
 
-    <div id="liveViewContainer" width="1440" height="1080" display="none">
-      <img id="liveViewImage"  width="1440" height="1080" crossorigin="anonymous">
-        <canvas id="liveViewOverlayCanvas" width="1440" height="1080"></canvas>
+
+    <div id="liveViewContainer" width="960" height="640" display="none">
+      <img id="liveViewImage"  width="960" height="640" crossorigin="anonymous">
+        <canvas id="liveViewOverlayCanvas" width="960" height="640"></canvas>
       </div>
 
+      <!-- <canvas id="myBarChart" width="400" height="200"></canvas> -->
+
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-storage-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-database-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-check-compat.js"></script>
     <script src="ccapi.js"></script>
     <script src="tensorFlow.js"></script>
+    <script src="pipi/functions.js"></script>
+	  <script src="poses.js"></script>
+    <script src="firebase.js"></script>
+
   </body>
 </html>

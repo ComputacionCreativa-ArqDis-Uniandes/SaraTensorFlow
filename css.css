@@ -9,3 +9,11 @@
     z-index: 100;
    
   }
+
+#myBarChart{
+	display: block;
+	position: fixed;
+	left: 960px;
+	top: 0px;
+	font-size: 50px;
+}
