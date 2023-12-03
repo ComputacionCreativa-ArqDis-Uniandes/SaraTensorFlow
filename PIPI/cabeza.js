@@ -1,40 +1,9 @@
-let inputDict = {
-    nose: [284.44,264.44],
-    leftEye: [284.44,264.44],
-    rightEye: [284.44,264.44],
-    leftEar: [284.44,264.44],
-    rightEear: [284.44,264.44],
-    leftShoulder: [284.44,264.44],
-    rightShoulder: [284.44,264.44],
-    leftElbow: [284.44,264.44],
-    rightElbow: [284.44,264.44],
-    leftWrist: [284.44,264.44],
-    rightWrist: [284.44,264.44],
-    leftHip: [284.44,264.44],
-    rightHip: [284.44,264.44],
-    leftKnee: [284.44,264.44],
-    rightKnee: [284.44,264.44],
-    leftAnkle: [284.44,264.44],
-    rightAnkle: [284.44,264.44],
-  };
+// Create a QR code with some data
+var qr = new QRCode(document.createElement("div"), {
+  text: "https://www.example.com",
+  width: 128,
+  height: 128
+});
 
-
-  let referenceDict = {
-    nose: [284.44,264.44],
-    leftEye: [284.44,264.44],
-    rightEye: [284.44,264.44],
-    leftEar: [284.44,264.44],
-    rightEear: [284.44,264.44],
-    leftShoulder: [284.44,264.44],
-    rightShoulder: [284.44,264.44],
-    leftElbow: [284.44,264.44],
-    rightElbow: [284.44,264.44],
-    leftWrist: [284.44,264.44],
-    rightWrist: [284.44,264.44],
-    leftHip: [284.44,264.44],
-    rightHip: [284.44,264.44],
-    leftKnee: [284.44,264.44],
-    rightKnee: [284.44,264.44],
-    leftAnkle: [284.44,264.44],
-    rightAnkle: [284.44,264.44],
-  };
+// Append the QR code to the body or any other container
+document.body.appendChild(qr._el);
