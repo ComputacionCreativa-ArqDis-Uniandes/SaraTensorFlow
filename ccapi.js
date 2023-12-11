@@ -7,7 +7,7 @@ function setupCamera() {
     const inputField2 = document.getElementById('textInput2');
     refreshRate = inputField2.value;
 
-    camaraIP = "https://" + camaraIP;
+    camaraIP = "http://" + camaraIP;
     ccapiIP = camaraIP + "/ccapi"
     console.log(ccapiIP);
   fetch(ccapiIP, {
@@ -97,11 +97,51 @@ function startLiveView() {
   setInterval(updateLiveView, refreshRate);
 }
 
+// Function to fetch and update live view image
 function updateLiveView() {
-  updateLiveViewIP = camaraIP + "/ccapi/ver100/shooting/liveview/flip?timestamp="
+  const updateLiveViewIP = camaraIP + "/ccapi/ver100/shooting/liveview/flip?timestamp=";
   const timestamp = new Date().getTime();
-  liveViewImage.src = updateLiveViewIP + timestamp;
+
+  // Fetch the image
+  fetch(updateLiveViewIP + timestamp)
+    .then(response => response.blob())
+    .then(blob => {
+      // Create an image element to handle the image
+      const img = new Image();
+      img.onload = () => {
+        // Create a canvas to draw the rotated image
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+
+        // Rotate the image 90 degrees
+        canvas.width = img.height;
+        canvas.height = img.width;
+        ctx.rotate(Math.PI / 2);
+        ctx.drawImage(img, 0, -canvas.width);
+
+        // Convert the canvas content to a data URL
+        const rotatedImageDataUrl = canvas.toDataURL();
+
+        // Optionally, you can store the rotated image locally using other methods (e.g., IndexedDB, localStorage)
+        // For simplicity, we'll just create an <img> element to temporarily store it
+        const rotatedImage = new Image();
+        rotatedImage.src = rotatedImageDataUrl;
+
+        // Update the live view image source with the rotated image
+        liveViewImage.src = rotatedImageDataUrl;
+      };
+
+      // Set the source of the image to the fetched blob
+      img.src = URL.createObjectURL(blob);
+    })
+    .catch(error => {
+      console.error("Error fetching live view image:", error);
+    });
 }
+
+// Call the function to update the live view image
+updateLiveView();
+
 
 function getLatestPicture() {
   const currentDirectoryIP = camaraIP + "/ccapi/ver120/contents/card2/100EOSR6?type=jpeg";

@@ -14,7 +14,7 @@
     <h1>SARA CCAPI + TensorFlow Test</h1>
     <div id="liveViewContainer"></div>
     <label for="textInput">IP: </label>
-    <input type="text" id="textInput" value="172.50.2.221:443">
+    <input type="text" id="textInput" value="192.168.1.28:8080">
     <input type="text" id="textInput2" value="200">
     <button onclick="setupCamera()">Setup Camera</button>
     <button onclick="releaseShutter()">Release Shutter</button>
@@ -22,9 +22,9 @@
     <button onclick="setup()">Setup TensorFlow</button>
 
 
-    <div id="liveViewContainer" width="960" height="640" display="none">
-      <img id="liveViewImage"  width="960" height="640" crossorigin="anonymous">
-        <canvas id="liveViewOverlayCanvas" width="960" height="640"></canvas>
+    <div id="liveViewContainer" width="640" height="960" display="none">
+      <img id="liveViewImage"  width="640" height="960" crossorigin="anonymous">
+        <canvas id="liveViewOverlayCanvas" width="640" height="960"></canvas>
       </div>
 
       <!-- <canvas id="myBarChart" width="400" height="200"></canvas> -->
